@@ -11,7 +11,25 @@ import SwiftUI
 struct DrinksOnMeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                HomePageView()
+                    .tabItem {
+                        Image(systemName:"house")
+                    }
+                IHaveView()
+                    .tabItem {
+                        Image(systemName:"dice.fill")
+                    }
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                    }
+                CategoryView()
+                    .tabItem {
+                        Image(systemName: "scroll.fill")
+                    }
+            }
+            .tint(.accentColor)
         }
     }
 }
