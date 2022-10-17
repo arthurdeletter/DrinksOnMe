@@ -15,12 +15,22 @@
 		42D9EA5128F6B6C200A84386 /* IHaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EA5028F6B6C200A84386 /* IHaveView.swift */; };
 		42D9EA5328F6B6F300A84386 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EA5228F6B6F300A84386 /* CategoryView.swift */; };
 		42F620E528F6EE12002C53AD /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F620E428F6EE11002C53AD /* Drink.swift */; };
-		42F620E728F6F255002C53AD /* strawberryLemonade.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42F620E628F6F255002C53AD /* strawberryLemonade.jpg */; };
-		42F620E928F70658002C53AD /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F620E828F70658002C53AD /* ResultListView.swift */; };
+		42F620E928F70658002C53AD /* CategoryResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F620E828F70658002C53AD /* CategoryResultView.swift */; };
 		42F620EC28F71626002C53AD /* DrinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F620EB28F71626002C53AD /* DrinkViewModel.swift */; };
 		42F620EE28F7177E002C53AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F620ED28F7177E002C53AD /* Category.swift */; };
 		42F620F028F717B5002C53AD /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F620EF28F717B5002C53AD /* CategoryViewModel.swift */; };
 		42F620F228F71AA9002C53AD /* CategoryTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F620F128F71AA9002C53AD /* CategoryTileView.swift */; };
+		8A67AC3728FAB13B005E499A /* DrinkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC3628FAB13B005E499A /* DrinkDetailView.swift */; };
+		8A67AC3928FAC493005E499A /* CategoryDrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC3828FAC493005E499A /* CategoryDrinksViewModel.swift */; };
+		8A67AC3D28FAE8E5005E499A /* SearchDrinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC3C28FAE8E5005E499A /* SearchDrinkViewModel.swift */; };
+		8A67AC3F28FAED90005E499A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC3E28FAED90005E499A /* Ingredient.swift */; };
+		8A67AC4128FAEE24005E499A /* IngredientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC4028FAEE24005E499A /* IngredientsViewModel.swift */; };
+		8A67AC4328FAF808005E499A /* InlineDrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC4228FAF808005E499A /* InlineDrinkView.swift */; };
+		8A67AC4528FAF8C8005E499A /* IngredientResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC4428FAF8C8005E499A /* IngredientResultView.swift */; };
+		8A67AC4728FAF94C005E499A /* IngredientDrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC4628FAF94C005E499A /* IngredientDrinksViewModel.swift */; };
+		8A67AC4B28FAFE73005E499A /* FilteredDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A67AC4A28FAFE72005E499A /* FilteredDrink.swift */; };
+		8A67AC4D28FB0258005E499A /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A67AC4C28FB0258005E499A /* SplashScreen.storyboard */; };
+		8A67AC5128FB0378005E499A /* LogoTransparent1024p.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A67AC5028FB0378005E499A /* LogoTransparent1024p.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,12 +43,22 @@
 		42D9EA5028F6B6C200A84386 /* IHaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IHaveView.swift; sourceTree = "<group>"; };
 		42D9EA5228F6B6F300A84386 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		42F620E428F6EE11002C53AD /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
-		42F620E628F6F255002C53AD /* strawberryLemonade.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = strawberryLemonade.jpg; path = ../../../../../../Downloads/strawberryLemonade.jpg; sourceTree = "<group>"; };
-		42F620E828F70658002C53AD /* ResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListView.swift; sourceTree = "<group>"; };
+		42F620E828F70658002C53AD /* CategoryResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResultView.swift; sourceTree = "<group>"; };
 		42F620EB28F71626002C53AD /* DrinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewModel.swift; sourceTree = "<group>"; };
 		42F620ED28F7177E002C53AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		42F620EF28F717B5002C53AD /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		42F620F128F71AA9002C53AD /* CategoryTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTileView.swift; sourceTree = "<group>"; };
+		8A67AC3628FAB13B005E499A /* DrinkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailView.swift; sourceTree = "<group>"; };
+		8A67AC3828FAC493005E499A /* CategoryDrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDrinksViewModel.swift; sourceTree = "<group>"; };
+		8A67AC3C28FAE8E5005E499A /* SearchDrinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDrinkViewModel.swift; sourceTree = "<group>"; };
+		8A67AC3E28FAED90005E499A /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		8A67AC4028FAEE24005E499A /* IngredientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewModel.swift; sourceTree = "<group>"; };
+		8A67AC4228FAF808005E499A /* InlineDrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineDrinkView.swift; sourceTree = "<group>"; };
+		8A67AC4428FAF8C8005E499A /* IngredientResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientResultView.swift; sourceTree = "<group>"; };
+		8A67AC4628FAF94C005E499A /* IngredientDrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDrinksViewModel.swift; sourceTree = "<group>"; };
+		8A67AC4A28FAFE72005E499A /* FilteredDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDrink.swift; sourceTree = "<group>"; };
+		8A67AC4C28FB0258005E499A /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		8A67AC5028FB0378005E499A /* LogoTransparent1024p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoTransparent1024p.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +117,12 @@
 				42D9EA4E28F6B6A000A84386 /* SearchView.swift */,
 				42D9EA5028F6B6C200A84386 /* IHaveView.swift */,
 				42D9EA5228F6B6F300A84386 /* CategoryView.swift */,
-				42F620E828F70658002C53AD /* ResultListView.swift */,
+				42F620E828F70658002C53AD /* CategoryResultView.swift */,
 				42F620F128F71AA9002C53AD /* CategoryTileView.swift */,
+				8A67AC3628FAB13B005E499A /* DrinkDetailView.swift */,
+				8A67AC4228FAF808005E499A /* InlineDrinkView.swift */,
+				8A67AC4428FAF8C8005E499A /* IngredientResultView.swift */,
+				8A67AC4C28FB0258005E499A /* SplashScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +132,8 @@
 			children = (
 				42F620E428F6EE11002C53AD /* Drink.swift */,
 				42F620ED28F7177E002C53AD /* Category.swift */,
+				8A67AC3E28FAED90005E499A /* Ingredient.swift */,
+				8A67AC4A28FAFE72005E499A /* FilteredDrink.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,7 +141,7 @@
 		42D9EA4D28F6B64900A84386 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				42F620E628F6F255002C53AD /* strawberryLemonade.jpg */,
+				8A67AC5028FB0378005E499A /* LogoTransparent1024p.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -125,6 +151,10 @@
 			children = (
 				42F620EB28F71626002C53AD /* DrinkViewModel.swift */,
 				42F620EF28F717B5002C53AD /* CategoryViewModel.swift */,
+				8A67AC3828FAC493005E499A /* CategoryDrinksViewModel.swift */,
+				8A67AC3C28FAE8E5005E499A /* SearchDrinkViewModel.swift */,
+				8A67AC4028FAEE24005E499A /* IngredientsViewModel.swift */,
+				8A67AC4628FAF94C005E499A /* IngredientDrinksViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -187,8 +217,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A67AC5128FB0378005E499A /* LogoTransparent1024p.png in Resources */,
 				4249901328F5D8DB004DA4BD /* Preview Assets.xcassets in Resources */,
-				42F620E728F6F255002C53AD /* strawberryLemonade.jpg in Resources */,
+				8A67AC4D28FB0258005E499A /* SplashScreen.storyboard in Resources */,
 				4249901028F5D8DB004DA4BD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,16 +231,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42F620E928F70658002C53AD /* ResultListView.swift in Sources */,
+				42F620E928F70658002C53AD /* CategoryResultView.swift in Sources */,
+				8A67AC3928FAC493005E499A /* CategoryDrinksViewModel.swift in Sources */,
 				42F620F228F71AA9002C53AD /* CategoryTileView.swift in Sources */,
 				4249900E28F5D8CF004DA4BD /* HomePageView.swift in Sources */,
+				8A67AC3F28FAED90005E499A /* Ingredient.swift in Sources */,
+				8A67AC3D28FAE8E5005E499A /* SearchDrinkViewModel.swift in Sources */,
 				42F620F028F717B5002C53AD /* CategoryViewModel.swift in Sources */,
+				8A67AC4B28FAFE73005E499A /* FilteredDrink.swift in Sources */,
 				42D9EA4F28F6B6A000A84386 /* SearchView.swift in Sources */,
+				8A67AC4328FAF808005E499A /* InlineDrinkView.swift in Sources */,
 				42F620EC28F71626002C53AD /* DrinkViewModel.swift in Sources */,
 				42D9EA5128F6B6C200A84386 /* IHaveView.swift in Sources */,
 				42F620EE28F7177E002C53AD /* Category.swift in Sources */,
+				8A67AC4128FAEE24005E499A /* IngredientsViewModel.swift in Sources */,
 				4249900C28F5D8CF004DA4BD /* DrinksOnMeApp.swift in Sources */,
+				8A67AC4728FAF94C005E499A /* IngredientDrinksViewModel.swift in Sources */,
 				42D9EA5328F6B6F300A84386 /* CategoryView.swift in Sources */,
+				8A67AC3728FAB13B005E499A /* DrinkDetailView.swift in Sources */,
+				8A67AC4528FAF8C8005E499A /* IngredientResultView.swift in Sources */,
 				42F620E528F6EE12002C53AD /* Drink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +385,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -374,6 +415,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

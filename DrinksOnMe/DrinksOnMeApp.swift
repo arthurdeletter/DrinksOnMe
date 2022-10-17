@@ -16,13 +16,13 @@ struct DrinksOnMeApp: App {
                     .tabItem {
                         Image(systemName:"house")
                     }
-                IHaveView()
-                    .tabItem {
-                        Image(systemName:"dice.fill")
-                    }
                 SearchView()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
+                    }
+                IHaveView()
+                    .tabItem {
+                        Image(systemName:"dice.fill")
                     }
                 CategoryView()
                     .tabItem {

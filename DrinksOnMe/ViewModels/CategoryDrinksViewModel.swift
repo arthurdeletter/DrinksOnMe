@@ -1,24 +1,31 @@
 //
-//  CategoryViewModel.swift
+//  CategoryDrinksViewModel.swift
 //  DrinksOnMe
 //
-//  Created by Arthur De letter on 12/10/2022.
+//  Created by Arthur De letter on 15/10/2022.
 //
 
 import Foundation
 
-final class CategoryViewModel: ObservableObject {
-    @Published var categories: [Category] = []
+final class CategoryDrinksViewModel: ObservableObject {
+    @Published var drinks: [FilteredDrink] = []
     @Published var hasError = false
-    @Published var errortje: CategoryError?
+    @Published var errortje: CategoryDrinksError?
     @Published private(set) var isRefreshing = false
+    @Published var selectedCategory = ""
     
-    func fetchDrinkCategories() {
+    func fetchCategoryDrinks(_ category: String) {
         hasError = false
         isRefreshing = true
+        var categoryName = category
+        selectedCategory = category
         
-        let categoriesUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
-        if let url = URL(string: categoriesUrl) {
+        if category.rangeOfCharacter(from: .whitespaces) != nil {
+            categoryName = category.replacingOccurrences(of: " ", with: "_")
+        }
+        
+        let categoryDrinksUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=" + categoryName
+        if let url = URL(string: categoryDrinksUrl) {
             URLSession
                 .shared
                 .dataTask(with: url) { [weak self] data, response, error in
@@ -27,11 +34,11 @@ final class CategoryViewModel: ObservableObject {
                             
                         do {
                             if let data = data {
-                                let jsonData = try JSONDecoder().decode(InitialCategories.self, from: data)
-                                self?.categories = jsonData.drinks
+                                let jsonData = try JSONDecoder().decode(InitialFilteredDrink.self, from: data)
+                                self?.drinks = jsonData.drinks
                             }
                         } catch (let error) {
-                            self?.errortje = CategoryError.custom(error: error)
+                            self?.errortje = CategoryDrinksError.custom(error: error)
                             self?.hasError = true
                             print(error)
                         }
@@ -43,8 +50,8 @@ final class CategoryViewModel: ObservableObject {
     }
 }
 
-extension CategoryViewModel {
-    enum CategoryError: LocalizedError {
+extension CategoryDrinksViewModel {
+    enum CategoryDrinksError: LocalizedError {
         case custom(error: Error)
         case failedToDecode
         

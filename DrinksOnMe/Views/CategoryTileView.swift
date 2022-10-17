@@ -12,7 +12,7 @@ struct CategoryTileView: View {
 //    let bgColor: Int
 //    let colors = [Color.red, Color.blue, Color.green, Color.yellow, Color.brown, Color.gray, Color.cyan, Color.orange, Color.purple]
     var body: some View {
-        NavigationLink(destination: ResultListView()) {
+        NavigationLink(destination: CategoryResultView(categoryTitle: category.strCategory)) {
             ZStack {
                 RoundedRectangle(cornerRadius: 20.0)
                 Text(category.strCategory)

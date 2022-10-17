@@ -11,36 +11,43 @@ struct HomePageView: View {
     @StateObject private var vm = DrinkViewModel()
     
     var body: some View {
-        VStackLayout(alignment: .leading) {
-            Text("Drinks on me!")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .padding(.top)
-            ZStack {
-                ForEach(vm.drinks, id: \.idDrink) { drink in
-                    RandomDrinkView(drink: drink)
+        NavigationView {
+            VStack (alignment: .leading) {
+                ZStack {
+                    ForEach(vm.drinks, id: \.idDrink) { drink in
+                        NavigationLink {
+                            DrinkDetailView(drinkId: drink.idDrink)
+                        } label: {
+                            RandomDrinkView(drink: drink)
+                        }
+                    }
                 }
-            }
-            .onAppear(perform: vm.fetchRandomDrinks)
-            .alert(isPresented: $vm.hasError, error: vm.errortje) {
-                Button(action: vm.fetchRandomDrinks) {
-                    Text("Retry")
-                        .foregroundColor(Color("AccentColor"))
+                .onAppear(perform: fetchDataIfNeeded)
+                .alert(isPresented: $vm.hasError, error: vm.errortje) {
+                    Button(action: vm.fetchRandomDrink) {
+                        Text("Retry")
+                            .foregroundColor(Color("AccentColor"))
+                    }
                 }
+                Spacer()
+                Button(action: vm.fetchRandomDrink) {
+                    Text("Random cocktail")
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
             }
-            Spacer()
-            Button(action: {
-                
-            }) {
-                Text("Random cocktail")
-                    .font(.body)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
+            .navigationTitle("Drinks on me!")
+            .padding([.top, .leading, .trailing])
+        }.padding(.bottom)
+    }
+    
+    func fetchDataIfNeeded() {
+        if vm.drinks.isEmpty {
+            vm.fetchRandomDrink()
         }
-        .padding([.leading, .bottom, .trailing])
     }
 }
 
@@ -58,7 +65,7 @@ struct RandomDrinkView: View {
                     Text(drink.strDrink)
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color("CustomBlack"))
                     Text("Featured")
                         .fontWeight(.bold)
                         .foregroundColor(Color("PrimaryColor"))

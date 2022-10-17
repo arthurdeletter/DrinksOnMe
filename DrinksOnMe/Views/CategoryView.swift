@@ -25,11 +25,11 @@ struct CategoryView: View {
                             }
                         }
                     }
-                    .padding(.top)
+                    .padding([.top, .leading, .trailing])
                     .navigationTitle("Discover")
                 }
             }
-            .onAppear(perform: vm.fetchDrinkCategories)
+            .onAppear(perform: fetchDataIfNeeded)
             .alert(isPresented: $vm.hasError, error: vm.errortje) {
                 Button(action: vm.fetchDrinkCategories) {
                     Text("Retry")
@@ -39,6 +39,13 @@ struct CategoryView: View {
         }
         .padding(.bottom)
     }
+    
+    func fetchDataIfNeeded() {
+        if vm.categories.isEmpty {
+            vm.fetchDrinkCategories()
+        }
+    }
+    
 }
 
 struct CategoryView_Previews: PreviewProvider {

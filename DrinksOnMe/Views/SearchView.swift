@@ -9,13 +9,39 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var searchText = ""
+    @StateObject private var vm = SearchDrinkViewModel()
+    
     var body: some View {
         NavigationView {
-            Text("Searching for \(searchText)")
-                .searchable(text: $searchText, prompt: "Search drinks")
-                .navigationTitle("Search")
+            ZStack {
+                if searchResults.isEmpty {
+                    VStack {
+                        Text("Search drink").font(.largeTitle)
+                        Text("Find the recipe for your favourite drink just by searching the name.").foregroundColor(.gray).multilineTextAlignment(.center).padding(.horizontal, 50.0)
+                    }
+                }
+                else {
+                    List {
+                        ForEach(searchResults, id: \.idDrink) { drink in
+                            NavigationLink(destination: DrinkDetailView(drinkId: drink.idDrink)) {
+                                HStack {
+                                    Text(drink.strDrink)
+                                }
+                            }
+                        }
+                    }
+                }
+            }.searchable(text: $searchText, prompt: "E.g. Mojito")
         }
         .padding(.bottom)
+    }
+    
+    var searchResults: [Drink] {
+        if searchText.count > 0 {
+            vm.searchDrinkByName(searchText)
+            return vm.results
+        }
+        return []
     }
 }
 

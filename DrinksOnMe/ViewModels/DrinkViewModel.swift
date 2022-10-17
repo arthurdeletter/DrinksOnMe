@@ -13,7 +13,7 @@ final class DrinkViewModel: ObservableObject {
     @Published var errortje: DrinkError?
     @Published private(set) var isRefreshing = false
     
-    func fetchRandomDrinks() {
+    func fetchRandomDrink() {
         let randomDrinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
         if let url = URL(string: randomDrinkUrl) {
             URLSession
@@ -23,7 +23,32 @@ final class DrinkViewModel: ObservableObject {
                     DispatchQueue.main.async {
                             do {
                                 if let data = data {
-                                    let jsonData = try JSONDecoder().decode(Initial.self, from: data)
+                                    let jsonData = try JSONDecoder().decode(InitialDrinks.self, from: data)
+                                    self?.drinks = jsonData.drinks
+                                }
+                            } catch(let error) {
+                                self?.errortje = DrinkError.custom(error: error)
+                                self?.hasError = true
+                                print(error)
+                            }
+                        self?.isRefreshing = false
+                    }
+                    
+                }.resume()
+        }
+    }
+    
+    func fetchDrinkById(_ id: String) {
+        let randomDrinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id
+        if let url = URL(string: randomDrinkUrl) {
+            URLSession
+                .shared
+                .dataTask(with: url) { [weak self] data, response, error in
+                    
+                    DispatchQueue.main.async {
+                            do {
+                                if let data = data {
+                                    let jsonData = try JSONDecoder().decode(InitialDrinks.self, from: data)
                                     self?.drinks = jsonData.drinks
                                 }
                             } catch(let error) {

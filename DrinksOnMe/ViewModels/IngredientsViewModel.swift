@@ -1,24 +1,24 @@
 //
-//  CategoryViewModel.swift
+//  IngredientsViewModel.swift
 //  DrinksOnMe
 //
-//  Created by Arthur De letter on 12/10/2022.
+//  Created by Arthur De letter on 15/10/2022.
 //
 
 import Foundation
 
-final class CategoryViewModel: ObservableObject {
-    @Published var categories: [Category] = []
+final class IngredientsViewModel: ObservableObject {
+    @Published var ingredients: [Ingredient] = []
     @Published var hasError = false
-    @Published var errortje: CategoryError?
+    @Published var errortje: IngredientError?
     @Published private(set) var isRefreshing = false
     
-    func fetchDrinkCategories() {
+    func fetchIngredients() {
         hasError = false
         isRefreshing = true
         
-        let categoriesUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
-        if let url = URL(string: categoriesUrl) {
+        let ingredientsUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+        if let url = URL(string: ingredientsUrl) {
             URLSession
                 .shared
                 .dataTask(with: url) { [weak self] data, response, error in
@@ -27,11 +27,11 @@ final class CategoryViewModel: ObservableObject {
                             
                         do {
                             if let data = data {
-                                let jsonData = try JSONDecoder().decode(InitialCategories.self, from: data)
-                                self?.categories = jsonData.drinks
+                                let jsonData = try JSONDecoder().decode(InitialIngredients.self, from: data)
+                                self?.ingredients = jsonData.drinks
                             }
                         } catch (let error) {
-                            self?.errortje = CategoryError.custom(error: error)
+                            self?.errortje = IngredientError.custom(error: error)
                             self?.hasError = true
                             print(error)
                         }
@@ -43,8 +43,8 @@ final class CategoryViewModel: ObservableObject {
     }
 }
 
-extension CategoryViewModel {
-    enum CategoryError: LocalizedError {
+extension IngredientsViewModel {
+    enum IngredientError: LocalizedError {
         case custom(error: Error)
         case failedToDecode
         
