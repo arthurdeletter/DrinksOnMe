@@ -20,7 +20,7 @@
   <h3>Drinks On Me!</h3>
 
   <p align="center">
-    Drinks On Me! is a mobile application for searching and eploring all kinds of drinks. You are provided with the necessary ingredients and the instructions on hew to make it yourself.
+    Drinks On Me! is a mobile application for searching and exploring all kinds of drinks. You are provided with the necessary ingredients and the instructions on hew to make it yourself.
     <br />
     <a href="https://github.com/arthurdeletter/DrinksOnMe"><strong>Explore the docs »</strong></a>
     <br />
@@ -83,7 +83,7 @@
 
 ### Prerequisites
 
-* Xcode
+* You have Xcode installed
 
 ### Installation
 
