@@ -82,11 +82,8 @@ struct IngredientTileView: View {
     }
     
     func createImage(name: String) -> String {
-        var ingredientName = name
-        if name.rangeOfCharacter(from: .whitespaces) != nil {
-            ingredientName = name.replacingOccurrences(of: " ", with: "%20")
-        }
-        return url + ingredientName + size + ext
+        let ingredientName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return url + (ingredientName!) + size + ext
     }
 }
 

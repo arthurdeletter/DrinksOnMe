@@ -31,7 +31,7 @@ struct HomePageView: View {
                 }
                 Spacer()
                 Button(action: vm.fetchRandomDrink) {
-                    Text("Random cocktail")
+                    Text("Random drink")
                         .font(.body)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity)

@@ -55,11 +55,13 @@ struct Drink: Codable {
         tempIngredients.append(strIngredient14 ?? "")
         tempIngredients.append(strIngredient15 ?? "")
         
+        print()
+        
         for ing in tempIngredients {
-            if ing != "" {
-                ingredients.append(ing)
+            if ing == "" {
+                break
             }
-            break
+            ingredients.append(ing)
         }
         return ingredients
     }

@@ -17,14 +17,10 @@ final class IngredientDrinksViewModel: ObservableObject {
     func fetchIngredientDrinks(_ ingredient: String) {
         hasError = false
         isRefreshing = true
-        var ingredientName = ingredient
+        let ingredientName = ingredient.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         selectedIngredient = ingredient
         
-        if ingredient.rangeOfCharacter(from: .whitespaces) != nil {
-            ingredientName = ingredient.replacingOccurrences(of: " ", with: "_")
-        }
-        
-        let ingredientDrinksUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientName
+        let ingredientDrinksUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientName!
         if let url = URL(string: ingredientDrinksUrl) {
             URLSession
                 .shared

@@ -26,7 +26,7 @@ struct DrinksOnMeApp: App {
                     }
                 CategoryView()
                     .tabItem {
-                        Image(systemName: "scroll.fill")
+                        Image(systemName: "safari")
                     }
             }
             .tint(.accentColor)

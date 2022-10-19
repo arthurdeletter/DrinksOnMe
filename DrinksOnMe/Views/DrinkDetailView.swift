@@ -18,6 +18,7 @@ struct DrinkDetailView: View {
                 DetailView(drink: drink)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             if drinkId != nil {
                 vm.fetchDrinkById(drinkId!)
@@ -67,7 +68,7 @@ struct DetailView: View {
                     }
                     VStack(alignment: .leading) {
                         Text("Ingredients").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
-                        VStack {
+                        VStack(alignment: .leading) {
                             ForEach(drink.getIngredients(), id: \.self) { ingredient in
                                 Text("- " + ingredient).foregroundColor(.gray)
                             }
@@ -80,10 +81,15 @@ struct DetailView: View {
                     }
                     .padding(.top)
                 }
-                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .padding(.top, 20)
             }
-            .padding(.top, 0.0)
-        }
+            .frame(maxWidth: .infinity)
+            .padding([.top, .leading, .trailing])
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .offset(y: -100)
+        }.frame(maxWidth: .infinity)
     }
 }
 

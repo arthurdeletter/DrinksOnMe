@@ -17,14 +17,10 @@ final class CategoryDrinksViewModel: ObservableObject {
     func fetchCategoryDrinks(_ category: String) {
         hasError = false
         isRefreshing = true
-        var categoryName = category
+        let categoryName = category.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         selectedCategory = category
         
-        if category.rangeOfCharacter(from: .whitespaces) != nil {
-            categoryName = category.replacingOccurrences(of: " ", with: "_")
-        }
-        
-        let categoryDrinksUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=" + categoryName
+        let categoryDrinksUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=" + categoryName!
         if let url = URL(string: categoryDrinksUrl) {
             URLSession
                 .shared
