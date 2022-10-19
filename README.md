@@ -89,7 +89,7 @@
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/arthurdeletter/DrinksOnMe.git
    ```
  2. Open the **DrinksOnMe.xcodeproj** file
 
