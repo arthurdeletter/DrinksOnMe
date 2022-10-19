@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct DrinkDetailView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject private var vm = DrinkViewModel()
     let drinkId: String?
     var drink: [Drink]?
     
+    var btnBack : some View { Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            }) {
+                ZStack {
+                    Image(systemName: "xmark")
+                        .aspectRatio(1/1, contentMode: .fit)
+                        .padding(.all, 6)
+                }
+                .foregroundColor(.white)
+                .background(Color.accentColor)
+                .cornerRadius(4.0)
+            }
+        }
+    
     var body: some View {
         ZStack {
             ForEach(vm.drinks, id: \.idDrink) { drink in
-                DetailView(drink: drink)
+                DetailView(drink: drink).frame(maxWidth: .infinity)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(trailing: btnBack)
         .onAppear(perform: {
             if drinkId != nil {
                 vm.fetchDrinkById(drinkId!)
@@ -56,39 +73,47 @@ struct DetailView: View {
                     ProgressView()
                 }
             }
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0.0) {
-                    VStack(alignment: .leading) {
-                        Text(drink.strDrink).font(.largeTitle).fontWeight(.bold)
-                        HStack(spacing: 4) {
-                            Text(drink.strCategory)
-                            Text("·").font(.largeTitle)
-                            Text(drink.strAlcoholic)
-                        }.foregroundColor(.accentColor).fontWeight(.medium)
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Ingredients").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+            GeometryReader(content: { geometry in
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 0.0) {
                         VStack(alignment: .leading) {
-                            ForEach(drink.getIngredients(), id: \.self) { ingredient in
-                                Text("- " + ingredient).foregroundColor(.gray)
+                            Text(drink.strDrink).font(.largeTitle).fontWeight(.bold)
+                            HStack(spacing: 4) {
+                                Text(drink.strCategory)
+                                Text("·").font(.largeTitle)
+                                Text(drink.strAlcoholic)
+                            }.foregroundColor(.accentColor).fontWeight(.medium)
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            Text("Ingredients").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+                            VStack(alignment: .leading) {
+                                ForEach(drink.getIngredients(), id: \.self) { ingredient in
+                                    Text("👉 " + ingredient).foregroundColor(.gray)
+                                }
                             }
                         }
+                        .padding(.top)
+                        
+                        VStack(alignment: .leading) {
+                            Text("How to prepare").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+                            HStack {
+                                Text(drink.strInstructions).multilineTextAlignment(.leading).foregroundColor(.gray)
+                                Spacer()
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.top)
                     }
-                    .padding(.top)
-                    VStack(alignment: .leading) {
-                        Text("How to prepare").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
-                        Text(drink.strInstructions).foregroundColor(.gray)
-                    }
-                    .padding(.top)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 20)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.top, 20)
-            }
-            .frame(maxWidth: .infinity)
-            .padding([.top, .leading, .trailing])
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 30))
-            .offset(y: -100)
+                .frame(maxWidth: .infinity, minHeight: geometry.size.height + 70)
+                .padding([.top, .leading, .trailing])
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .offset(y: -100)
+            })
         }.frame(maxWidth: .infinity)
     }
 }

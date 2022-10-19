@@ -66,6 +66,7 @@ struct RandomDrinkView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(Color("CustomBlack"))
+                        .multilineTextAlignment(.leading)
                     Text("Featured")
                         .fontWeight(.bold)
                         .foregroundColor(Color("PrimaryColor"))
