@@ -23,7 +23,7 @@ struct DrinkDetailView: View {
                 }
                 .foregroundColor(.white)
                 .background(Color.accentColor)
-                .cornerRadius(4.0)
+                .cornerRadius(8.0)
             }
         }
     
@@ -107,10 +107,11 @@ struct DetailView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 20)
+                    .foregroundColor(Color("CustomBlack"))
                 }
                 .frame(maxWidth: .infinity, minHeight: geometry.size.height + 70)
                 .padding([.top, .leading, .trailing])
-                .background(.white)
+                .background(Color("CustomWhite"))
                 .clipShape(RoundedRectangle(cornerRadius: 30))
                 .offset(y: -100)
             })
