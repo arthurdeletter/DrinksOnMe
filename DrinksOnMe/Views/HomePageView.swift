@@ -55,14 +55,14 @@ struct RandomDrinkView: View {
     let drink: Drink
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: drink.strDrinkThumb)) { image in
+            AsyncImage(url: URL(string: drink.thumb)) { image in
                 image.resizable().aspectRatio(1/1, contentMode: .fit)
             } placeholder: {
                 ProgressView()
             }
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(drink.strDrink)
+                    Text(drink.name)
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(Color("CustomBlack"))

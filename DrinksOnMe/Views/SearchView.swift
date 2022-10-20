@@ -25,7 +25,7 @@ struct SearchView: View {
                         ForEach(searchResults, id: \.idDrink) { drink in
                             NavigationLink(destination: DrinkDetailView(drinkId: drink.idDrink)) {
                                 HStack {
-                                    Text(drink.strDrink)
+                                    Text(drink.name)
                                 }
                             }
                         }

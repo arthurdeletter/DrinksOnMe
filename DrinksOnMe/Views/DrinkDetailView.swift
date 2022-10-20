@@ -60,10 +60,11 @@ struct DrinkDetailView: View {
 
 struct DetailView: View {
     let drink: Drink
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack {
-                AsyncImage(url: URL(string: drink.strDrinkThumb)) { image in
+                AsyncImage(url: URL(string: drink.thumb)) { image in
                     image
                         .resizable()
                         .aspectRatio(1/1, contentMode: .fit)
@@ -77,19 +78,21 @@ struct DetailView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 0.0) {
                         VStack(alignment: .leading) {
-                            Text(drink.strDrink).font(.largeTitle).fontWeight(.bold)
+                            Text(drink.name).font(.largeTitle).fontWeight(.bold)
                             HStack(spacing: 4) {
-                                Text(drink.strCategory)
+                                Text(drink.category)
                                 Text("·").font(.largeTitle)
-                                Text(drink.strAlcoholic)
+                                Text(drink.alcoholic)
                             }.foregroundColor(.accentColor).fontWeight(.medium)
                         }
                         
                         VStack(alignment: .leading) {
                             Text("Ingredients").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
                             VStack(alignment: .leading) {
-                                ForEach(drink.getIngredients(), id: \.self) { ingredient in
-                                    Text("👉 " + ingredient).foregroundColor(.gray)
+                                ForEach(drink.ingredients, id: \.self) { ingredient in
+                                    if (ingredient != nil) {
+                                        Text("👉 " + ingredient!).foregroundColor(.gray)
+                                    }
                                 }
                             }
                         }
@@ -98,7 +101,7 @@ struct DetailView: View {
                         VStack(alignment: .leading) {
                             Text("How to prepare").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
                             HStack {
-                                Text(drink.strInstructions).multilineTextAlignment(.leading).foregroundColor(.gray)
+                                Text(drink.instructions).multilineTextAlignment(.leading).foregroundColor(.gray)
                                 Spacer()
                             }
                         }
