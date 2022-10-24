@@ -38,21 +38,14 @@ struct HomePageView: View {
                             .resizable()
                             .aspectRatio(1/1, contentMode: .fit)
                             .frame(width: 40, height: 40, alignment: .center)
-                            .padding(.all)
+                            .padding(.all, 20)
                             .background(Color("OffWhite"))
                             .clipShape(Circle())
                             .onTapGesture(perform: vm.fetchRandomDrink)
                     }
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.accentColor)
-            //                Button(action: vm.fetchRandomDrink) {
-            //                    Text("Random drink")
-            //                        .font(.body)
-            //                        .fontWeight(.bold)
-            //                        .frame(maxWidth: .infinity)
-            //                }
-            //                .buttonStyle(.borderedProminent)
-            //                .controlSize(.large)
+                    .padding(.all)
                 }
                 .navigationTitle("Drinks on me!")
                 .padding([.top, .leading, .trailing])
@@ -80,20 +73,13 @@ struct HomePageView: View {
                             .resizable()
                             .aspectRatio(1/1, contentMode: .fit)
                             .frame(width: 40, height: 40, alignment: .center)
-                            .padding(.all)
+                            .padding(.all, 20)
                             .background(Color("OffWhite"))
                             .clipShape(Circle())
                             .onTapGesture(perform: vm.fetchRandomDrink)
                     }
                     .foregroundColor(.accentColor)
-            //                Button(action: vm.fetchRandomDrink) {
-            //                    Text("Random drink")
-            //                        .font(.body)
-            //                        .fontWeight(.bold)
-            //                        .frame(maxWidth: .infinity)
-            //                }
-            //                .buttonStyle(.borderedProminent)
-            //                .controlSize(.large)
+                    .padding(.all)
                 }
                 .navigationTitle("Drinks on me!")
                 .padding([.top, .leading, .trailing])
