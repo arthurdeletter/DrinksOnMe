@@ -59,66 +59,124 @@ struct DrinkDetailView: View {
 }
 
 struct DetailView: View {
+    @Environment(\.horizontalSizeClass) var widthSizeClass
+    @Environment(\.verticalSizeClass) var heightSizeClass
     let drink: Drink
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            ZStack {
-                AsyncImage(url: URL(string: drink.thumb)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(1/1, contentMode: .fit)
-                        .frame(maxWidth: .infinity)
-                        .ignoresSafeArea()
-                } placeholder: {
-                    ProgressView()
+        if heightSizeClass == .regular {
+            VStack(alignment: .leading, spacing: 0) {
+                ZStack {
+                    AsyncImage(url: URL(string: drink.thumb)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(1/1, contentMode: .fit)
+                            .frame(maxWidth: .infinity)
+                            .ignoresSafeArea()
+                    } placeholder: {
+                        ProgressView()
+                    }
                 }
-            }
-            GeometryReader(content: { geometry in
-                ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: 0.0) {
-                        VStack(alignment: .leading) {
-                            Text(drink.name).font(.largeTitle).fontWeight(.bold)
-                            HStack(spacing: 4) {
-                                Text(drink.category)
-                                Text("·").font(.largeTitle)
-                                Text(drink.alcoholic)
-                            }.foregroundColor(.accentColor).fontWeight(.medium)
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text("Ingredients").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+                GeometryReader(content: { geometry in
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 0.0) {
                             VStack(alignment: .leading) {
-                                ForEach(drink.ingredients, id: \.self) { ingredient in
-                                    if (ingredient != nil) {
-                                        Text("👉 " + ingredient!).foregroundColor(.gray)
+                                Text(drink.name).font(.largeTitle).fontWeight(.bold)
+                                HStack(spacing: 4) {
+                                    Text(drink.category)
+                                    Text("·").font(.largeTitle)
+                                    Text(drink.alcoholic)
+                                }.foregroundColor(.accentColor).fontWeight(.medium)
+                            }
+                            
+                            VStack(alignment: .leading) {
+                                Text("Ingredients").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+                                VStack(alignment: .leading) {
+                                    ForEach(drink.ingredients, id: \.self) { ingredient in
+                                        if (ingredient != nil) {
+                                            Text("👉 " + ingredient!).foregroundColor(.gray)
+                                        }
                                     }
                                 }
                             }
-                        }
-                        .padding(.top)
-                        
-                        VStack(alignment: .leading) {
-                            Text("How to prepare").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
-                            HStack {
-                                Text(drink.instructions).multilineTextAlignment(.leading).foregroundColor(.gray)
-                                Spacer()
+                            .padding(.top)
+                            
+                            VStack(alignment: .leading) {
+                                Text("How to prepare").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+                                HStack {
+                                    Text(drink.instructions).multilineTextAlignment(.leading).foregroundColor(.gray)
+                                    Spacer()
+                                }
                             }
+                            .frame(maxWidth: .infinity)
+                            .padding(.top)
                         }
                         .frame(maxWidth: .infinity)
-                        .padding(.top)
+                        .padding(.top, 20)
+                        .foregroundColor(Color("CustomBlack"))
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 20)
-                    .foregroundColor(Color("CustomBlack"))
+                    .frame(maxWidth: .infinity, minHeight: geometry.size.height + 70)
+                    .padding([.top, .leading, .trailing])
+                    .background(Color("CustomWhite"))
+                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                    .offset(y: -100)
+                })
+            }.frame(maxWidth: .infinity)
+        }
+        else {
+            HStack {
+                ZStack {
+                    AsyncImage(url: URL(string: drink.thumb)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(1/1, contentMode: .fit)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                    } placeholder: {
+                        ProgressView()
+                    }
                 }
-                .frame(maxWidth: .infinity, minHeight: geometry.size.height + 70)
-                .padding([.top, .leading, .trailing])
-                .background(Color("CustomWhite"))
-                .clipShape(RoundedRectangle(cornerRadius: 30))
-                .offset(y: -100)
-            })
-        }.frame(maxWidth: .infinity)
+                GeometryReader(content: { geometry in
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 0.0) {
+                            VStack(alignment: .leading) {
+                                Text(drink.name).font(.largeTitle).fontWeight(.bold)
+                                HStack(spacing: 4) {
+                                    Text(drink.category)
+                                    Text("·").font(.largeTitle)
+                                    Text(drink.alcoholic)
+                                }.foregroundColor(.accentColor).fontWeight(.medium)
+                            }
+                            
+                            VStack(alignment: .leading) {
+                                Text("Ingredients").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+                                VStack(alignment: .leading) {
+                                    ForEach(drink.ingredients, id: \.self) { ingredient in
+                                        if (ingredient != nil) {
+                                            Text("👉 " + ingredient!).foregroundColor(.gray)
+                                        }
+                                    }
+                                }
+                            }
+                            .padding(.top)
+                            
+                            VStack(alignment: .leading) {
+                                Text("How to prepare").font(.title).fontWeight(.medium).padding(.bottom, 1.0)
+                                HStack {
+                                    Text(drink.instructions).multilineTextAlignment(.leading).foregroundColor(.gray)
+                                    Spacer()
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.top)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color("CustomBlack"))
+                    }
+                    .padding(.horizontal)
+                    .background(Color("CustomWhite"))
+                })
+            }.frame(maxWidth: .infinity)
+        }
     }
 }
 

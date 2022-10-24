@@ -22,7 +22,7 @@ struct DrinksOnMeApp: App {
                     }
                 IHaveView()
                     .tabItem {
-                        Image(systemName:"dice.fill")
+                        Image(systemName:"list.bullet.clipboard")
                     }
                 CategoryView()
                     .tabItem {
