@@ -17,7 +17,7 @@ final class CategoryDrinksViewModel: ObservableObject {
     func fetchCategoryDrinks(_ category: String) {
         hasError = false
         isRefreshing = true
-        let categoryName = category.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let categoryName = category.safeForUrl
         selectedCategory = category
         
         let categoryDrinksUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=" + categoryName!

@@ -17,7 +17,7 @@ final class IngredientDrinksViewModel: ObservableObject {
     func fetchIngredientDrinks(_ ingredient: String) {
         hasError = false
         isRefreshing = true
-        let ingredientName = ingredient.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let ingredientName = ingredient.safeForUrl
         selectedIngredient = ingredient
         
         let ingredientDrinksUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientName!

@@ -82,7 +82,7 @@ struct IngredientTileView: View {
     }
     
     func createImage(name: String) -> String {
-        let ingredientName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let ingredientName = name.safeForUrl
         return url + (ingredientName!) + size + ext
     }
 }
