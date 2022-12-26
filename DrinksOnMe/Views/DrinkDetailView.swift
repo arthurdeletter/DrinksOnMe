@@ -22,7 +22,7 @@ struct DrinkDetailView: View {
                         .padding(.all, 6)
                 }
                 .foregroundColor(.white)
-                .background(Color.accentColor)
+                .background(Color.gray)
                 .cornerRadius(8.0)
             }
         }
