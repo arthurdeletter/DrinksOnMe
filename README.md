@@ -98,9 +98,13 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+With the DrinksOnMe! app, there are many ways to find a drinks that fits you perfectly.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+1. Simply tap the ingredient you own and get suprised with a list of drinks you can make.
+2. Search a drink by name.
+3. Get drinks inspiration within a category of you choice.
+
+<img src="images/Usage.png" alt="Ways to use DrinksOnMe!">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
