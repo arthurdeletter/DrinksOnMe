@@ -84,7 +84,8 @@ struct HomePageView: View {
                 .navigationTitle("Drinks on me!")
                 .padding([.top, .leading, .trailing])
             }
-        }.padding(.bottom)
+        }.navigationViewStyle(StackNavigationViewStyle())
+            .padding(.bottom)
     }
     
     func fetchDataIfNeeded() {

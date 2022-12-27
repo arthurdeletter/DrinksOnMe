@@ -32,7 +32,7 @@ struct SearchView: View {
                     }
                 }
             }.searchable(text: $searchText, prompt: "E.g. Mojito")
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         .padding(.bottom)
     }
     

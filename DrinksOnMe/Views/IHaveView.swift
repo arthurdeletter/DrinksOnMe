@@ -40,7 +40,7 @@ struct IHaveView: View {
                         .foregroundColor(Color("AccentColor"))
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         .searchable(text: $searchText, prompt: "E.g. Gin")
         .padding(.bottom)
     }

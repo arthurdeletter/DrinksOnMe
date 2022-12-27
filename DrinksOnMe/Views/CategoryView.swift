@@ -36,7 +36,7 @@ struct CategoryView: View {
                         .foregroundColor(Color("AccentColor"))
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         .padding(.bottom)
     }
     
